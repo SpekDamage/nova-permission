@@ -43,6 +43,7 @@ class RoleBooleanGroup extends BooleanGroup
         }
 
         $model->roles()->detach();
+        $model->load('roles');
 
         collect(json_decode($request[$requestAttribute], true))
             ->filter(static function (bool $value) {
